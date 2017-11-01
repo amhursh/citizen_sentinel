@@ -13,4 +13,9 @@
  *= require_tree .
  *= require_self
  */
-@bulma
+@import "bulma";
+
+.footer-pad {
+	padding-top: 100px;
+	margin-top: 100px;
+}

@@ -3,12 +3,73 @@
   <head>
     <title>CitizenSentinel</title>
     <%= csrf_meta_tags %>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+  	<nav class="navbar is-light" role="navigation" aria-label="main navigation">
+		  <div class="navbar-brand">
+		    <a class="navbar-item" href="/">
+		    	CitizenSentinel
+		      <!-- <img src="https://bulma.io/images/bulma-logo.png" alt="CitezenSentinel" width="112" height="28"> -->
+		    </a>
+
+		    <button class="button navbar-burger">
+		      <span></span>
+		      <span></span>
+		      <span></span>
+		    </button>
+		  </div>
+
+		  <div class="navbar-menu">
+
+			  <div class="navbar-start">
+			  	  <div class="navbar-item has-dropdown is-hoverable">
+					    <a class="navbar-link">
+					      Info
+					    </a>
+
+					    <div class="navbar-dropdown">
+					      <a class="navbar-item">
+					        About
+					      </a>
+					      <a class="navbar-item">
+					        Author
+					      </a>
+					    </div>
+					  </div>
+			  </div>
+
+			  <div class="navbar-end">
+			  	<div class="navbar-item">
+			  		<a class="button is-link" href="/">Sign Up</a>
+			  	</div>
+			  	<div class="navbar-item">
+			  		<a class="button is-danger" href="/">Sign In</a>
+			  	</div>
+			  </div>
+		  	
+		  </div>
+
+
+		</nav>
+
     <%= yield %>
+
+		<footer class="footer footer-pad">
+		  <div class="container">
+		    <div class="content has-text-centered">
+		      <p>
+		        <strong>CitizenSentinel</strong> by Aaron Hursh</a>.
+		      </p>
+		      <p>
+		      	2017
+		      </p>
+		    </div>
+		  </div>
+		</footer>
   </body>
 </html>
