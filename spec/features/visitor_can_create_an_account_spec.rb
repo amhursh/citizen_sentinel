@@ -6,7 +6,9 @@ feature 'Visitor can create and account' do
     # I can visit the root page,
     visit '/'
     # and I can click on 'Sign Up'
-    click_on 'Sign Up', match: :first
+    within '.login-nav' do
+      click_on 'Sign Up'
+    end
     # and I can choose to create an account
     # and I can fill in the information to create an account,
     expect(current_path).to eq new_user_path
