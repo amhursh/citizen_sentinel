@@ -14,7 +14,10 @@ feature 'Registered user can sign into an account' do
 
     fill_in "session[username]", with: user.username
     fill_in "session[password]", with: user.password
-    click_on "Sign In"
+
+    within '.signin-form-submit' do
+      click_on "Sign In"
+    end
 
     expect(current_path).to eq user_path(user)
     expect(page).to have_content "Signed in as #{user.username}"
