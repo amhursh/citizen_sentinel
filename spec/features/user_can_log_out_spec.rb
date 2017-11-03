@@ -3,9 +3,21 @@ require 'rails_helper'
 feature 'Registered user can log out' do
   scenario 'signed in user can click link to log out' do
     user = create(:user)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit user_path(user)
+    visit '/'
+
+    within '.signin-nav' do
+      click_on 'Sign In'
+    end
+
+    expect(current_path).to eq new_login_path
+
+    fill_in "session[username]", with: user.username
+    fill_in "session[password]", with: user.password
+
+    within '.signin-form-submit' do
+      click_on "Sign In"
+    end
 
     click_on 'Sign Out'
 
