@@ -1,0 +1,56 @@
+
+<div class="column is-4 is-offset-4">
+
+  <div class="level">
+    <h1 class="level-item has-text-centered is-size-1">Create an Account</h1>
+  </div>
+  <%= form_for @user do |f| -%>
+  <div class="field">
+      <%= f.label :username, "Username", class: 'label' %>
+      <div class="control has-icons-left">
+        <%= f.text_field :username, class: 'input' %>
+        <span class="icon is-small is-left">
+          <i class="fa fa-user"></i>
+        </span>
+      </div>
+      <p class="help">Enter a Username that is unique to you</p>
+  </div>
+  <div class="field">
+      <%= f.label :email, "Email", class: 'label' %>
+      <div class="control has-icons-left">
+        <%= f.text_field :email, class: 'input' %>
+        <span class="icon is-small is-left">
+          <i class="fa fa-envelope"></i>
+        </span>
+      </div>
+      <p class="help">Just incase you forget anything</p>
+  </div>
+  <div class="field">
+      <%= f.label :password, "Password", class: 'label' %>
+      <div class="control has-icons-left">
+        <%= f.password_field :password, class: 'input' %>
+        <span class="icon is-small is-left">
+          <i class="fa fa-lock"></i>
+        </span>
+      </div>
+      <p class="help">Make it a good one so you don't get Equifaxed</p>
+  </div>
+  <div class="field ">
+      <%= f.label :password_confirmation, "Password Confirmation", class: 'label' %>
+      <div class="control has-icons-left">
+        <%= f.password_field :password_confirmation, class: 'input' %>
+        <span class="icon is-small is-left">
+          <i class="fa fa-lock"></i>
+        </span>
+      </div>
+      <p class="help">Let me hear you say it one more time</p>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= f.submit "Create Account", class: 'button is-link', method: :post %>
+    </div>
+  </div>
+  <% end %>
+
+</div>

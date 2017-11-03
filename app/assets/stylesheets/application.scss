@@ -19,3 +19,15 @@
 	padding-top: 100px;
 	margin-top: 100px;
 }
+
+.flash-success {
+  border-style: none;
+  background-color: lightblue;
+  text-align: center;
+}
+
+.flash-failure {
+  border-style: none;
+  background-color: red;
+  text-align: center;
+}
