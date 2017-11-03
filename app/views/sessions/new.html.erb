@@ -1,0 +1,37 @@
+
+<div class="column is-4 is-offset-4">
+
+  <div class="level">
+    <h1 class="level-item has-text-centered is-size-1">Sign In to Your Account</h1>
+  </div>
+  <%= form_for :session, url: login_path do |f| -%>
+  <div class="field">
+      <%= f.label :username, "Username", class: 'label' %>
+      <div class="control has-icons-left">
+        <%= f.text_field :username, class: 'input' %>
+        <span class="icon is-small is-left">
+          <i class="fa fa-user"></i>
+        </span>
+      </div>
+      <p class="help">Enter your super cool Username</p>
+  </div>
+
+  <div class="field">
+      <%= f.label :password, "Password", class: 'label' %>
+      <div class="control has-icons-left">
+        <%= f.password_field :password, class: 'input' %>
+        <span class="icon is-small is-left">
+          <i class="fa fa-lock"></i>
+        </span>
+      </div>
+      <p class="help">You'll need to give us your super secret passcode</p>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= f.submit "Sign In", class: 'button is-link', method: :post %>
+    </div>
+  </div>
+  <% end %>
+
+</div>
