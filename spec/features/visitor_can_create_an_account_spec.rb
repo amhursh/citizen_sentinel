@@ -16,9 +16,10 @@ feature 'Visitor can create and account' do
     fill_in 'user[username]', with: 'aaron'
     fill_in 'user[email]', with: 'aaron@aaron.com'
     fill_in 'user[password]', with: '123456'
-    fill_in 'user[password_confirmation]', with: '123456'
+    fill_in 'user_password_confirmation', with: '123456'
     click_on 'Create Account'
     # and i should be on my user profile
+    binding.pry
     user = User.last
 
     expect(current_path).to eq user_path(user)

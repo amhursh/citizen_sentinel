@@ -1,10 +1,11 @@
 
 <div class="column is-4 is-offset-4">
+
   <div class="level">
     <h1 class="level-item has-text-centered is-size-1">Create an Account</h1>
   </div>
+  <%= form_for @user do |f| -%>
   <div class="field">
-    <%= form_for @user do |f| -%>
       <%= f.label :username, "Username", class: 'label' %>
       <div class="control has-icons-left">
         <%= f.text_field :username, class: 'input' %>
@@ -44,10 +45,12 @@
       </div>
       <p class="help">Let me hear you say it one more time</p>
   </div>
+
   <div class="field">
     <div class="control">
-      <%= f.submit "Create Account", class: 'button is-link' %>
+      <%= f.submit "Create Account", class: 'button is-link', method: :post %>
     </div>
-    <% end %>
   </div>
+  <% end %>
+
 </div>
