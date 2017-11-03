@@ -19,12 +19,13 @@ feature 'Visitor can create and account' do
     fill_in 'user_password_confirmation', with: '123456'
     click_on 'Create Account'
     # and i should be on my user profile
-    binding.pry
     user = User.last
 
     expect(current_path).to eq user_path(user)
     # and i should see my information
     expect(page).to have_content user.username
     expect(page).to have_content user.email
+    expect(page).to_not have_content 'Sign Up'
+    expect(page).to have_content 'Sign Out'
   end
 end
