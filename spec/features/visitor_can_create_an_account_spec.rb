@@ -6,7 +6,7 @@ feature 'Visitor can create and account' do
     # I can visit the root page,
     visit '/'
     # and I can click on 'Sign Up'
-    within '.login-nav' do
+    within '.signup-nav' do
       click_on 'Sign Up'
     end
     # and I can choose to create an account

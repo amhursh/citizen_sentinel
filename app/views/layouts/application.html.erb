@@ -45,10 +45,10 @@
 
 		  <div class="navbar-end">
 		  	<% if visitor? %>
-		  	<div class="navbar-item login-nav">
+		  	<div class="navbar-item signup-nav">
 		  		<%= link_to "Sign Up", new_user_path, class: "button is-link" %>
 		  	</div>
-		  	<div class="navbar-item">
+		  	<div class="navbar-item signin-nav">
 		  		<a class="button is-danger" href="/">Sign In</a>
 		  	</div>
 		  	<% elsif current_user %>
