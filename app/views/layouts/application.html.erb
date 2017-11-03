@@ -53,7 +53,8 @@
 		  	</div>
 		  	<% elsif current_user %>
 		  	<div class="navbar-item">
-		  		<a class="button is-danger" href="/">Sign Out</a>
+		  		<!-- <a class="button is-danger" href="/">Sign Out</a> -->
+		  		<%= link_to "Sign Out", logout_path, class: "button is-link", method: :delete %>
 		  	</div>
 		  	<% end %>
 
