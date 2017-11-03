@@ -66,6 +66,18 @@
 
 	</nav>
 
+	<% flash.each do |type, message| %>
+		<% if flash[:success] %>
+	    <div class="flash-success">
+	      <%= sanitize(message) %>
+	    </div>
+	    <% elsif flash[:failure] %>
+	    <div class="flash-failure">
+	      <%= sanitize(message) %>
+	    </div>
+	    <% end %>
+    <% end %>
+
     <%= yield %>
 
 	<footer class="footer footer-pad">
