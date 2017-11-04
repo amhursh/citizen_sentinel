@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy', as: 'logout'
 
   get '/auth/:provider', to: 'sessions#create'
+  get '/auth/:provider/callback', to: 'sessions#create'
 end
