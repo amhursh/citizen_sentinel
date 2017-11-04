@@ -4,7 +4,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    binding.pry
     default_login? ? user = default_login_info : user = oauth_login_info
     if user
       session[:user_id] = user.id
