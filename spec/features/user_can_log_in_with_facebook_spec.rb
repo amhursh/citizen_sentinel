@@ -10,7 +10,7 @@ feature 'User can log in with facebook' do
       click_on 'Sign In'
     end
 
-    click_on 'Sign In with Facebook'
+    click_on 'facebook-login'
 
     expect(current_path).to eq user_path(User.last)
     expect(page).to have_content 'Aaron Hursh'
