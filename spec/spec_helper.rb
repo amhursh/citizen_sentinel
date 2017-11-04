@@ -15,3 +15,30 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 end
+
+def stub_omniauth
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new(
+  {
+    "provider"=>"facebook",
+    "uid"=>"12345",
+    "info"=> {
+      "email"=>"aaron@aaron.com",
+      "name"=>"aaron",
+      "image"=>"http://via.placeholder.com/150x150"
+      },
+    "credentials"=> {
+      "token"=> "abcdefg123456",
+      "expires_at"=>1514962006,
+      "expires"=>true
+      },
+    "extra"=> {
+      "raw_info"=> {
+        "name"=>"aaron",
+        "email"=>"aaron@aaron.com",
+        "id"=>"12345"
+        }
+      }
+    }
+    )
+end
