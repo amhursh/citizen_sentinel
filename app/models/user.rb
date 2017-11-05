@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
+  has_many :user_issues
+  has_many :issues, through: :user_issues
   validates :username, :email, presence: true, uniqueness: true
   validates :password_digest, presence: true
   validates :password, length: { minimum: 5 }, on: :create
