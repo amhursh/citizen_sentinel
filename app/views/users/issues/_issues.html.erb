@@ -1,0 +1,21 @@
+<div class="issues column is-4 is-offset-4">
+  <div class="level">
+    <h1 class="level-item has-text-centered is-size-2">Issues You Follow</h1>
+  </div>
+  <table class="table is-fullwidth is-striped">
+    <thead>
+      <tr>
+        <th>Issue</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+    <% @issues.each do |issue| %>
+    <tbody>
+      <tr class="issues-row-<%= issue.id %>">
+        <td><%= issue.name %></td>
+        <td><a class="button is-link is-outlined is-small">Check Activity</a></td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table> 
+</div>

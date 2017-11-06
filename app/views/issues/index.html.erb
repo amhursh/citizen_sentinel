@@ -1,0 +1,35 @@
+<div class="column is-10 is-offset-1 is-multiline">
+  <div class="level">
+    <h1 class="level-item has-text-centered is-size-1">All Available Issues</h1>
+  </div>
+  <div class="columns is-multiline">
+    <% @issues.each do |issue| %>
+    <div class="column is-4">
+      <div class>
+        <div class="card issue<%= issue.id %>">
+          <header class="card-header">
+            <p class="card-header-title">
+            <%= issue.name %>
+            </p>
+            <% if current_user.issues.include?(issue) %>
+            <p class="card-header-icon">
+              <span class="tag is-success">Following</span>
+            </p>
+            <% end %>
+          </header>
+          <footer class="card-footer">
+            <% if current_user.issues.include?(issue) %>
+            <%= link_to 'Unfollow', issue_unfollows_path(issue_id: issue.id), class: 'card-footer-item', method: :delete %>
+            <% else %>
+            <%= link_to 'Follow', issue_follows_path(issue_id: issue.id), class: 'card-footer-item', method: :post %>
+            <% end %>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="level">
+    <%= link_to "View Your Profile", user_path(current_user), class: 'level-item button is-danger is-outlined' %>
+  </div>
+</div>
