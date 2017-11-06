@@ -1,6 +1,6 @@
 class IssuesController < ApplicationController
 
-  def new
+  def index
     @issues = Issue.all
   end
 

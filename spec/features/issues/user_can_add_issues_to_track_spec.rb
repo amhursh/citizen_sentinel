@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'User can add issues' do
   scenario 'user can select from list of issues and add them to profile' do
     user = create(:user)
-    issue1, issue2, issue3 = create_list(:issue, 3)
+    issue1, issue2, issue3, issue4, issue5, issue6 = create_list(:issue, 6)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit user_path(user)
@@ -16,12 +16,15 @@ feature 'User can add issues' do
 
     click_on 'Add Issues You Would Like to Track'
 
-    expect(current_path).to eq new_user_issue_path(user)
+    expect(current_path).to eq issues_path
 
-    check "check-issue-#{issue1.id}"
-    check "check-issue-#{issue3.id}"
+    within ".issue#{issue1.id}" do
+      click_on 'Follow'
+    end
 
-    click 'Add Issues'
+    within ".issue#{issue3.id}" do
+      click_on 'Follow'
+    end
 
     expect(current_path).to eq user_path(user)
 
