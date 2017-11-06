@@ -1,29 +1,37 @@
-<h1>Recent Activity for Issue: <%= @issue.name %></h1>
+<div class="column is-10 is-offset-1">
+  <div class="level">
+    <h1 class="level-item has-text-centered is-size-1">
+      Recent Activity for Issue: <%= @issue.name %>
+    </h1>
+  </div>
 
-<% @bills_by_issue.each do |issue_bill| %>
-<article class="media bill">
-  <div class="media-content">
-    <div class="content">
-      <p class="title">
-        <strong class="bill_number"><%= issue_bill.bill_number %></strong> <small class="committees"><%= issue_bill.committees %></small> 
-        <br>
-        <%= issue_bill.title %>
-      </p>
-      <p class="last_major_action">
-        <small class="last_action_date"><%= issue_bill.last_action_date %></small>
-        <%= issue_bill.last_major_action %>
-      </p>
-    </div>
-    <nav class="level is-mobile">
-      <div class="level-left">
-        <a class="level-item">
-          Link to follow bill
-        </a>
+
+  <% @bills_by_issue.each do |issue_bill| %>
+  <article class="media bill">
+    <div class="media-content">
+      <div class="content">
+        <p class="title">
+          <strong class="bill_number"><%= issue_bill.bill_number %></strong> <small class="committees"> - <%= issue_bill.committees %></small> 
+        </p>
+        <p>
+          <small><%= issue_bill.title %></small>
+        </p>
+        <p class="last_major_action">
+          <small class="last_action_date"><%= issue_bill.last_action_date %></small>
+          <small> - <%= issue_bill.last_major_action %></small>
+        </p>
       </div>
-    </nav>
-  </div>
-  <div class="media-right">
-    <button class="delete"></button>
-  </div>
-</article>
-<% end %>
+      <nav class="level is-mobile">
+        <div class="level-left">
+          <a class="level-item">
+            Link to follow bill
+          </a>
+        </div>
+      </nav>
+    </div>
+    <div class="media-right">
+      <button class="delete"></button>
+    </div>
+  </article>
+  <% end %>
+</div>
