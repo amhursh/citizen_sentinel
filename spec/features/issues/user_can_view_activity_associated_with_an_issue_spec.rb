@@ -10,10 +10,9 @@ feature 'User can view issue activity' do
     visit user_path(user)
 
     click_on 'Followed Issues'
-    binding.pry
     click_on 'Check Activity'
 
-    expect(current_path).to eq users_issue_path(user, issue)
+    expect(current_path).to eq users_issue_path(issue)
 
     expect(page).to have_css(".bill", count: 20)
 
