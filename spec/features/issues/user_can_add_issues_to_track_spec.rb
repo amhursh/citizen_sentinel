@@ -26,6 +26,10 @@ feature 'User can add issues' do
       click_on 'Follow'
     end
 
+    expect(page).to have_content "Followed Issue: #{issue3.name}. See This Issue on Your Profile"
+
+    click_on 'See This Issue on Your Profile'
+
     expect(current_path).to eq user_path(user)
 
     expect(page).to have_content issue1.name
