@@ -1,0 +1,19 @@
+<div class="issues">
+  <h1>Issues You Follow</h1>
+  <% @issues.each do |issue| %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= issue.name %></td>
+        <td>update this issue</td>
+      </tr>
+    </tbody>
+  </table> 
+  <% end %>
+</div>

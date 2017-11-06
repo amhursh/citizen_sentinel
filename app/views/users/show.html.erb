@@ -1,4 +1,23 @@
-<%= current_user.username %>
-<%= current_user.email %>
+<div class="tabs is-centered">
+  <ul>
+    <li><%= link_to "Profile", user_path(@user), remote: true %></li>
+    <li><%= link_to "Followed Issues", users_issues_path, remote: true %></li>
+    <li><a>Reps</a></li>
+  </ul>
+</div>
 
-<%= link_to "Follow/Unfollow Issues", issues_path %>
+
+
+
+
+<div id="content">
+  <div class="level">
+    <h1 class="level-item has-text-centered is-size-1"><%= current_user.username %></h1>
+  </div>
+  <div class="level">
+    <h1 class="level-item has-text-centered is-size-3"><%= current_user.email %></h1>
+  </div>
+  <div class="level">
+    <h1 class="level-item has-text-centered is-size-3"><%= link_to "Follow/Unfollow Issues", issues_path, class: "button is-link" %></h1>
+  </div>
+</div>

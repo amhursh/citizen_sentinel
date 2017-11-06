@@ -12,7 +12,7 @@ feature 'User can add issues' do
     expect(page).to_not have_content(issue2.name)
     expect(page).to_not have_content(issue3.name)
 
-    expect(page).to have_content 'Add Issues You Would Like to Track'
+    expect(page).to have_content 'Follow/Unfollow Issues'
 
     click_on 'Follow/Unfollow Issues'
 
@@ -32,11 +32,10 @@ feature 'User can add issues' do
 
     expect(current_path).to eq user_path(user)
 
+    click_on 'Followed Issues'
+
     expect(page).to have_content issue1.name
     expect(page).to have_content issue3.name
     expect(page).to_not have_content issue2.name
-
-    expect(page).to have_content "Recent Activity for #{issue1.name}"
-    expect(page).to have_content "Recent Activity for #{issue3.name}"
   end
 end
