@@ -9,7 +9,6 @@ class ProPublicaService
 
   def bills_by_issue(issue)
     response = @conn.get("/congress/v1/bills/subjects/#{issue}.json")
-    binding.pry
     JSON.parse(response.body, symbolize_names: true)[:results]
   end
 

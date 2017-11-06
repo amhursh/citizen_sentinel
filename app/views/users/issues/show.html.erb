@@ -1,7 +1,7 @@
 <h1>Recent Activity for Issue: <%= @issue.name %></h1>
 
 <% @bills_by_issue.each do |issue_bill| %>
-<article class="media">
+<article class="media bill">
   <div class="media-content">
     <div class="content">
       <p class="title">
@@ -10,7 +10,7 @@
         <%= issue_bill.title %>
       </p>
       <p class="last_major_action">
-        <small class="last_action_date"><%= last_action_date %></small>
+        <small class="last_action_date"><%= issue_bill.last_action_date %></small>
         <%= issue_bill.last_major_action %>
       </p>
     </div>

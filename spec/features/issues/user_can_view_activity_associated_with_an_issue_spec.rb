@@ -18,7 +18,6 @@ feature 'User can view issue activity' do
 
     within(first(".bill")) do
       expect(page).to have_css(".bill_number")
-      expect(page).to have_css(".bill_uri")
       expect(page).to have_css(".title")
       expect(page).to have_css(".committees")
       expect(page).to have_css(".last_action_date")
