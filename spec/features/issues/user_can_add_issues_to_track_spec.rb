@@ -14,7 +14,7 @@ feature 'User can add issues' do
 
     expect(page).to have_content 'Add Issues You Would Like to Track'
 
-    click_on 'Add Issues You Would Like to Track'
+    click_on 'Follow/Unfollow Issues'
 
     expect(current_path).to eq issues_path
 

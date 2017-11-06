@@ -9,12 +9,20 @@
         <div class="card issue<%= issue.id %>">
           <header class="card-header">
             <p class="card-header-title">
-              <%= issue.name %>
+            <%= issue.name %>
             </p>
+            <% if current_user.issues.include?(issue) %>
+            <p class="card-header-icon">
+              <span class="tag is-success">Following</span>
+            </p>
+            <% end %>
           </header>
           <footer class="card-footer">
-            <%= link_to 'Follow', issue_follows_path(issue_id: issue.id), class: 'card-footer-item', method: :post %>
+            <% if current_user.issues.include?(issue) %>
             <%= link_to 'Unfollow', issue_unfollows_path(issue_id: issue.id), class: 'card-footer-item', method: :delete %>
+            <% else %>
+            <%= link_to 'Follow', issue_follows_path(issue_id: issue.id), class: 'card-footer-item', method: :post %>
+            <% end %>
           </footer>
         </div>
       </div>
