@@ -13,10 +13,8 @@
             </p>
           </header>
           <footer class="card-footer">
-            <%= link_to 'Follow', issue_follows_path, class: 'card-footer-item', method: :post %>
-            <a href="#" class="card-footer-item">Follow</a>
-            <%= link_to 'Unfollow', issue_follows_path, class: 'card-footer-item', method: :delete %>
-            <a href="#" class="card-footer-item">Unfollow</a>
+            <%= link_to 'Follow', issue_follows_path(issue_id: issue.id), class: 'card-footer-item', method: :post %>
+            <%= link_to 'Unfollow', issue_unfollows_path(issue_id: issue.id), class: 'card-footer-item', method: :delete %>
           </footer>
         </div>
       </div>
