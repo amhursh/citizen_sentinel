@@ -16,7 +16,7 @@ feature 'User can add issues' do
 
     click_on 'Add Issues You Would Like to Track'
 
-    expect(current_path).to eq new_user_issues_path
+    expect(current_path).to eq user_issue_path
 
     check "check-issue-#{issue1.id}"
     check "check-issue-#{issue3.id}"
