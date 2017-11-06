@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :issues, only: [:index]
   
   namespace :users do
-    resources :issues, only: [:index]
+    resources :issues, only: [:index, :show]
   end
   
   resources :users, only: [:new, :create, :show]
