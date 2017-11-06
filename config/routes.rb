@@ -5,8 +5,8 @@ Rails.application.routes.draw do
     # resources :issues, only: [:new, :create]
   end
 
-  post '/follow_issue', to: 'issuefollows#create', as: 'issue_follows'
-  delete '/unfollow_issue', to: 'issuefollows#destroy', as: 'issue_unfollows'
+  post '/follow_issue', to: 'issue_follows#create', as: 'issue_follows'
+  delete '/unfollow_issue', to: 'issue_follows#destroy', as: 'issue_unfollows'
 
   resources :issues, only: [:index]
 
