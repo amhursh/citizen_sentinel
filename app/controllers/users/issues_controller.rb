@@ -12,6 +12,7 @@ class Users::IssuesController < ApplicationController
   end
 
   def show
+    @user = current_user
     @issue = Issue.find(params[:id])
     @bills_by_issue = BillsSearch.by_issue(@issue.slug)
   end

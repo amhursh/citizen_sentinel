@@ -11,7 +11,7 @@
     <div class="media-content">
       <div class="content">
         <p class="title">
-          <strong class="bill_number"><%= issue_bill.bill_number %></strong> <small class="committees"> - <%= issue_bill.committees %></small> 
+          <strong class="bill_number"><%= issue_bill.bill_id %></strong> <small class="committees"> - <%= issue_bill.committees %></small> 
         </p>
         <p>
           <small><%= issue_bill.title %></small>
@@ -22,13 +22,19 @@
         </p>
       </div>
       <nav class="level is-mobile">
-        <div class="level-left">
-          <%= link_to "Follow this Bill", bill_follows_path(bill_id: issue_bill.bill_number), method: :post, remote: true %>
-        </div>
+        
       </nav>
     </div>
-    <div class="media-right followed-bill">
-      <button class="delete"></button>
+    <div class="media-right">
+      <% if user_has_issue_bill?(@user, issue_bill) %>
+        <div class="media-right followed-bill">
+          <a class="button is-link" title="Disabled button" disabled>Following</a>
+        </div>
+      <% else %>
+        <div class="level-left">
+          <%= link_to "Follow this Bill", bill_follows_path(bill_id: issue_bill.bill_number), method: :post, remote: true, class: 'button is-link is-outlined'  %>
+        </div>
+      <% end %>
     </div>
   </article>
   <% end %>
