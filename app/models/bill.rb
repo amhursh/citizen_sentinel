@@ -1,4 +1,6 @@
 class Bill < ApplicationRecord
+  has_many :user_bills
+  has_many :users, through: :user_bills
 
   def self.from_pro_publica(raw_bill)
     bill = find_by(bill_id: raw_bill[:bill_slug]) || Bill.new
