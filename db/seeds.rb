@@ -6,7 +6,6 @@ ISSUES = [
   "Womens Health",
   "Defense Policy",
   "Defense Spending",
-  "Defense",
   "Armed Forces And National Security",
   "Homeland Security",
   "Energy Security",

@@ -1,0 +1,27 @@
+<div class="bills">
+  <h1>Bills You Follow</h1>
+  <% @bills.each do |bill| %>
+  <table>
+    <thead>
+      <tr>
+        <th>Bill ID</th>
+        <th>Title</th>
+        <th>Subject</th>
+        <th>Active?</th>
+        <th>Enacted?</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= bill.bill_id %></td>
+        <td><%= bill.title %></td>
+        <td><%= bill.subject %></td>
+        <td><%= bill.active.to_s %></td>
+        <td><%= bill.enacted.to_s %></td>
+        <td> BILL LINK HERE </td>
+      </tr>
+    </tbody>
+  </table> 
+  <% end %>
+</div>

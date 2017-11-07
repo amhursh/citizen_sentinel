@@ -10,16 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171105211505) do
+ActiveRecord::Schema.define(version: 20171107063739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bills", force: :cascade do |t|
+    t.string "bill_id"
+    t.string "title"
+    t.string "subject"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "enacted"
+  end
 
   create_table "issues", force: :cascade do |t|
     t.string "name"
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "user_bills", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "bill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bill_id"], name: "index_user_bills_on_bill_id"
+    t.index ["user_id"], name: "index_user_bills_on_user_id"
   end
 
   create_table "user_issues", force: :cascade do |t|
@@ -43,6 +62,8 @@ ActiveRecord::Schema.define(version: 20171105211505) do
     t.string "image"
   end
 
+  add_foreign_key "user_bills", "bills"
+  add_foreign_key "user_bills", "users"
   add_foreign_key "user_issues", "issues"
   add_foreign_key "user_issues", "users"
 end

@@ -54,7 +54,6 @@
 			    <a class="navbar-link">
 			      Info
 			    </a>
-
 			    <div class="navbar-dropdown">
 			      <a class="navbar-item">
 			        About
@@ -72,16 +71,23 @@
 		  		<%= link_to "Sign Up", new_user_path, class: "button is-link" %>
 		  	</div>
 		  	<div class="navbar-item signin-nav">
-		  		<!-- <a class="button is-danger" href="/">Sign In</a> -->
 		  		<%= link_to "Sign In", new_login_path, class: "button is-danger" %>
 		  	</div>
 		  	<% elsif current_user %>
 		  	<div class="navbar-item">
-		  		<!-- <a class="button is-danger" href="/">Sign Out</a> -->
+		  		<%= link_to user_path(current_user), class: 'button is-danger is-outlined' do %>
+				 	<span class="icon is-small">
+      					<i class="fa fa-user"></i>
+    				</span>
+    				<span>
+    					My Profile
+    				</span>
+				<% end %>
+		  	</div>
+		  	<div class="navbar-item">
 		  		<%= link_to "Sign Out", logout_path, class: "button is-link", method: :delete %>
 		  	</div>
 		  	<% end %>
-
 		  </div>
 	  	
 	  </div>
