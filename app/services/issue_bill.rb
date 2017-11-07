@@ -1,4 +1,4 @@
-class Bill
+class IssueBill
 
   attr_reader :bill_number,
               :bill_uri,
