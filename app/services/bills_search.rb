@@ -6,4 +6,9 @@ class BillsSearch
       IssueBill.new(bill_info)
     end
   end
+
+  def self.find_and_generate(bill_id)
+    raw_bill = ProPublicaService.find_bill(bill_id)
+    Bill.from_pro_publica(raw_bill)
+  end
 end
