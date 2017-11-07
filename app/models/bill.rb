@@ -11,10 +11,22 @@ class Bill < ApplicationRecord
       active: raw_bill[:active],
       enacted: raw_bill[:enacted]
     }
+    bill.fix_nil_empty_title
+    bill.fix_nil_empty_subject
     bill.save
     bill
   end
 
+  def fix_nil_empty_title
+    if title.nil? || title.empty?
+      update(title: "Not Available. View full bill for information")
+    end
+  end
 
+  def fix_nil_empty_subject
+    if subject.nil? || subject.empty?
+      update(subject: "Not Available. View full bill for information")
+    end
+  end
 
 end
