@@ -9,7 +9,6 @@ class Bill < ApplicationRecord
       active: raw_bill[:active],
       enacted: raw_bill[:enacted]
     }
-    binding.pry
     bill.save
     bill
   end
