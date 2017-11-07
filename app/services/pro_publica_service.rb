@@ -18,7 +18,9 @@ class ProPublicaService
 
   def find_bill(bill_id)
     response = conn.get("/congress/v1/115/bills/#{bill_id}.json")
-    JSON.parse(response.body, symbolize_names: true)[:results]
+    raw_bill = JSON.parse(response.body, symbolize_names: true)[:results].first
+    convert_enacted(raw_bill)
+    raw_bill
   end
 
   def self.find_bill(bill_id)
@@ -28,5 +30,13 @@ class ProPublicaService
   private
 
     attr_reader :conn
+
+    def convert_enacted(raw_bill)
+      if raw_bill[:enacted].nil?
+        raw_bill[:enacted] = false
+      else
+        raw_bill[:enacted] = true
+      end
+    end
 
 end
