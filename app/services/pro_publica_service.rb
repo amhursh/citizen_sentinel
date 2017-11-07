@@ -19,7 +19,6 @@ class ProPublicaService
   def find_bill(bill_id)
     response = conn.get("/congress/v1/115/bills/#{bill_id}.json")
     JSON.parse(response.body, symbolize_names: true)[:results]
-    binding.pry
   end
 
   def self.find_bill(bill_id)
