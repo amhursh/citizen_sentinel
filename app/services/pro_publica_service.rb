@@ -16,15 +16,17 @@ class ProPublicaService
     new.bills_by_issue(issue)
   end
 
-  def find_bill(bill_id)
-    response = conn.get("/congress/v1/115/bills/#{bill_id}.json")
+  def find_bill(bill_ref)
+    bill_id = convert_bill_ref(bill_ref).first
+    congress_id = convert_bill_ref(bill_ref).last
+    response = conn.get("/congress/v1/#{congress_id}/bills/#{bill_id}.json")
     raw_bill = JSON.parse(response.body, symbolize_names: true)[:results].first
     convert_enacted(raw_bill)
     raw_bill
   end
 
-  def self.find_bill(bill_id)
-    new.find_bill(bill_id)
+  def self.find_bill(bill_ref)
+    new.find_bill(bill_ref)
   end
 
   private
@@ -37,6 +39,10 @@ class ProPublicaService
       else
         raw_bill[:enacted] = true
       end
+    end
+
+    def convert_bill_ref(bill_ref)
+      bill_ref.split('-')
     end
 
 end

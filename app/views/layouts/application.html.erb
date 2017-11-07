@@ -10,34 +10,11 @@
 
   <body>
 
-  	<script>
-	  window.fbAsyncInit = function() {
-	    FB.init({
-	      appId      : '{your-app-id}',
-	      cookie     : true,
-	      xfbml      : true,
-	      version    : '{latest-api-version}'
-	    });
-	      
-	    FB.AppEvents.logPageView();   
-	      
-	  };
-
-	  (function(d, s, id){
-	     var js, fjs = d.getElementsByTagName(s)[0];
-	     if (d.getElementById(id)) {return;}
-	     js = d.createElement(s); js.id = id;
-	     js.src = "https://connect.facebook.net/en_US/sdk.js";
-	     fjs.parentNode.insertBefore(js, fjs);
-	   }(document, 'script', 'facebook-jssdk'));
-	</script>
-
   	<nav class="navbar is-light" role="navigation" aria-label="main navigation">
 	  <div class="navbar-brand">
 	    <a class="navbar-item" href="/">
 	      <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/41077-200.png" alt="congress", width="20">
 	    	CitizenSentinel
-	      <!-- <img src="https://bulma.io/images/bulma-logo.png" alt="CitezenSentinel" width="112" height="28"> -->
 	    </a>
 
 	    <button class="button navbar-burger">

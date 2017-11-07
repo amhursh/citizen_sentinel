@@ -32,7 +32,7 @@
         </div>
       <% else %>
         <div class="level-left">
-          <%= link_to "Follow this Bill", bill_follows_path(bill_id: issue_bill.bill_number), method: :post, remote: true, class: 'button is-link is-outlined'  %>
+          <%= link_to "Follow this Bill", bill_follows_path(bill_ref: issue_bill.bill_ref), method: :post, class: 'button is-link is-outlined'  %>
         </div>
       <% end %>
     </div>

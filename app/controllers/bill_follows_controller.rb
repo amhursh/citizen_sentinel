@@ -2,8 +2,8 @@ class BillFollowsController < ApplicationController
 
   def create
     user = current_user
-    bill_id = format_bill_id(params["bill_id"])
-    bill = BillsSearch.find_and_generate(bill_id)
+    bill_ref = params[:bill_ref]
+    bill = BillsSearch.find_and_generate(bill_ref)
     if user.bills.include?(bill)
       flash[:success] = "Already following Bill: #{bill.bill_id}"
       redirect_back(fallback_location: user_path(user))
@@ -13,11 +13,5 @@ class BillFollowsController < ApplicationController
       redirect_back(fallback_location: user_path(user))
     end
   end
-
-  private
-
-    def format_bill_id(param_bill_id)
-      param_bill_id.tr('.','').downcase
-    end
 
 end
