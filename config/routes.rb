@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post '/follow_issue', to: 'issue_follows#create', as: 'issue_follows'
   delete '/unfollow_issue', to: 'issue_follows#destroy', as: 'issue_unfollows'
 
+  post '/follow_bill', to: 'bill_follows#create', as: 'bill_follows'
+
   get '/login', to: 'sessions#new', as: 'new_login'
   post '/login', to: 'sessions#create', as: 'login'
   delete '/logout', to: 'sessions#destroy', as: 'logout'

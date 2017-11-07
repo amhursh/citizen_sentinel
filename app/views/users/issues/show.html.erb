@@ -23,7 +23,7 @@
       </div>
       <nav class="level is-mobile">
         <div class="level-left">
-          <%= link_to "Follow this Bill", bill_follows_path(bill_id: issue_bill.bill_number) %>
+          <%= link_to "Follow this Bill", bill_follows_path(bill_id: issue_bill.bill_number), method: :post %>
         </div>
       </nav>
     </div>
