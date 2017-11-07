@@ -26,8 +26,8 @@ feature 'User can track specific bills' do
 
     click_on 'Followed Bills'
 
-    expect(page).to have_content bill.name
-    expect(page).to have_content bill.short_title
+    expect(page).to have_content bill.bill_id
+    expect(page).to have_content bill.title
     expect(page).to have_content bill.subject
   end
 end

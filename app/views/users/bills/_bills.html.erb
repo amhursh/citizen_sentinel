@@ -1,0 +1,29 @@
+<div class="bills">
+  <div class="level">
+    <h1 class="level-item has-text-centered is-size-2">Bills You Follow</h1>
+  </div>
+  <table class="table is-fullwidth is-striped">
+    <thead>
+      <tr>
+        <th>Bill ID</th>
+        <th>Title</th>
+        <th>Subject</th>
+        <th>Active?</th>
+        <th>Enacted?</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+    <% @bills.each do |bill| %>
+    <tbody>
+      <tr>
+        <td><%= bill.bill_id %></td>
+        <td><%= bill.title %></td>
+        <td><%= bill.subject %></td>
+        <td><%= bill.active.to_s %></td>
+        <td><%= bill.enacted.to_s %></td>
+        <td> BILL LINK HERE </td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table> 
+</div>
