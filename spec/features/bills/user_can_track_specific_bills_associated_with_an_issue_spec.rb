@@ -15,14 +15,14 @@ feature 'User can track specific bills' do
     expect(current_path).to eq users_issue_path(issue)
 
     click_on 'Follow this Bill', match: :first
-
-    expect(page).to eq users_issue_path(issue)
-    expect(page).to have_content 'Added Bill:'
-    expect(page).to have_css '.followed-bill'
-
+    
     bill = Bill.last
 
-    click_on 'Profile'
+    expect(current_path).to eq users_issue_path(issue)
+    expect(page).to have_content "Followed Bill: #{bill.bill_id}"
+    expect(page).to have_css '.followed-bill'
+
+    click_on 'My Profile'
 
     click_on 'Followed Bills'
 
