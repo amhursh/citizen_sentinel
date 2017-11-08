@@ -32,6 +32,6 @@ feature 'User can unfollow bills' do
 
     click_on 'Unfollow'
 
-    expect(page).to_not have_content bill.bill_id
+    expect(page).to_not have_content bill.title
   end
 end
