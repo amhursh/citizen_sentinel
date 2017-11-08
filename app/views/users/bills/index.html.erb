@@ -19,7 +19,7 @@
         <td><%= bill.subject %></td>
         <td><%= bill.active.to_s %></td>
         <td><%= bill.enacted.to_s %></td>
-        <td><%= link_to "View Bill", users_bill_path(bill_id: bill.id) %></td>
+        <td><%= link_to "View Bill", users_bill_path(bill, bill_id: bill.id) %></td>
         <td><%= link_to "Unfollow", bill_unfollows_path(bill_id: bill.id), method: :delete %></td>
       </tr>
     </tbody>
