@@ -1,0 +1,22 @@
+<h1 class="number"><%= @bill.number %></h1>
+<p class="introduced-date"><%= @bill.intro_date %></p>
+<h2 class="short-title"><%= @bill.short_title %></h2>
+<p class="sponsor">Sponsor: <%= @bill.sponsor %></p>
+<p class="committees">Committee: <%= @bill.committees %></p>
+<p class="subject">Issue: <%= @bill.subject %></p>
+<p class="congressdotgov">Congress.gov URL: <%= @bill.congressdotgov %></p>
+<p class="govtrack">Govtrack URL: <%= @bill.govtrack %></p>
+<br>
+<p class="summary">@bill.summary</p>
+<br>
+<h2>Actions</h2>
+<% @bill.actions.each do |action| %>
+<ul class="actions">
+  <p>action["id"]</p>
+  <p>action["chamber"]</p>
+  <p>action["action_type"]</p>
+  <p>action["datetime"]</p>
+  <p>action["description"]</p>
+</ul>
+<% end %>
+
