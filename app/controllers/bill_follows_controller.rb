@@ -14,4 +14,16 @@ class BillFollowsController < ApplicationController
     end
   end
 
+  def destroy
+    user = current_user
+    @bill = Bill.find(params[:bill_id])
+    user.bills.destroy(@bill)
+    # flash[:success] = "Unfollowed Bill: #{@bill.bill_id}"
+
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: user_path(user)) }
+      format.js
+    end
+  end
+
 end
