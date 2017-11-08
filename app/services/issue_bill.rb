@@ -24,8 +24,4 @@ class IssueBill
     @last_major_action  = info[:latest_major_action]
   end
 
-  def format_bill_number(raw_bill_num)
-    raw_bill_num.tr('.','').downcase
-  end
-
 end

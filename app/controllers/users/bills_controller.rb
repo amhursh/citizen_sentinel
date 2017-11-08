@@ -12,7 +12,6 @@ class Users::BillsController < ApplicationController
 
   def show
     bill_ref = params[:bill_ref]
-    binding.pry
     @bill = BillsSearch.get_full(bill_ref)
   end
 

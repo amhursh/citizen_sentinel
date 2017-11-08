@@ -14,5 +14,6 @@ class BillsSearch
 
   def self.get_full(bill_ref)
     raw_bill = ProPublicaService.get_full_bill(bill_ref)
+    FullBill.new(raw_bill)
   end
 end
