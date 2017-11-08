@@ -12,7 +12,7 @@
 
 
 <div class="column is-4 is-offset-4">
-
+	<% if visitor? %>
 	<div class="card">
 		<div class="card-header">
 			<div class="card-header-title is-centered">
@@ -21,7 +21,7 @@
 		</div>
 		<div class="card-content">
 			<p class="is-centered">
-				Do you know what members of congress are up to? Sign up to track representatives and the bills they craft, debate, and pass and become an engaged citizen today.
+				Do you know what members of congress are up to? Sign up to track issues and bills. Become an engaged citizen today.
 			</p>
 		</div>
 		<div class="card-footer">
@@ -29,6 +29,29 @@
 			<%= link_to "Sign In", new_login_path, class: "card-footer-item" %>
 		</div>
 	</div>
-
-	
+	<% else %>
+	<div class="card">
+		<div class="card-header">
+			<div class="card-header-title is-centered">
+				About Citizen Sentinel
+			</div>
+		</div>
+		<div class="card-content">
+			<p class="is-centered">
+				We all know the political issues that are important to us, but most of us are not able to track the actual legislation that affects those issues. News media is necessarily scope limited, so we don't see every legislative action that affects us. Raw data is nearly impossible for the layman to parse and relate to the issues we prioritize. Americans are thus disconnected from one of the most important features of civic society: law-making.
+			</p>
+		</div>
+			<div class="card-footer">
+		  <%= link_to user_path(current_user), class: 'card-footer-item' do %>
+				<span class="icon is-small">
+      		<i class="fa fa-user"></i>
+    		</span>
+    		<span>
+    			View Your Profile
+    		</span>
+			<% end %>
+		 </div>
+	</div>
+	<% end %>
 </div>
+	

@@ -1,0 +1,68 @@
+<div class="column is-10 is-offset-1">
+
+  <div class="level">
+    <h1 class="bill-number level-item has-text-centered is-size-1"><%= @bill.number %></h1>
+  </div>
+
+  <div class="level">
+    <h4 class="introduced-date level-item has-text-centered"><%= @bill.intro_date %></h4>
+  </div>
+
+  <div class="level">
+    <h2 class="short-title level-item has-text-centered is-size-2"><%= @bill.short_title %></h2>
+  </div>
+
+  <div class="column is-4 is-offset-4">
+    <div class="level">
+      <%= link_to "See this bill on Congress.gov", @bill.congressdotgov, class: 'congressdotgov button is-link is-outlined level-item' %>
+    </div>
+    <div class="level">
+      <%= link_to "See this bill at Govtrack", @bill.govtrack, class: 'govtrack button is-link is-outlined level-item' %>
+    </div>
+  </div>
+
+  <div class="content">
+    <br>
+    <h3 class="sponsor has-text-centered">Sponsor: <%= @bill.sponsor %></h3>
+    <h3 class="committees has-text-centered"><%= @bill.committees %></h3>
+    <h3 class="subject has-text-centered"><%= @bill.subject %></h3>
+    <br>
+    <p class="summary has-text-centered"><%= @bill.summary %></p>
+    <br>
+    <h2 class="has-text-centered">Actions</h2>
+    <br>
+  </div>
+
+  <% @bill.actions.each do |action| %>
+  <article class="media actions">
+    <figure class="media-left">
+      <p class="number">
+        <%= action[:id] %>
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content has-text-centered">
+        <h3>
+          <%= action[:description] %>
+        </h3>
+      </div>
+      <nav class="level is-mobile">
+        <div class="level-item">
+          <p class="has-text-centered">
+            <%= action[:action_type] %> - <%= action[:chamber] %>
+          </p>
+        </div>
+      </nav>
+    </div>
+    <div class="media-right">
+      <p>
+        <%= action[:datetime] %>
+      </p>
+    </div>
+  </article>
+  <% end %>
+
+</div>
+
+
+

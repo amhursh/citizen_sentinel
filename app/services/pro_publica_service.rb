@@ -29,6 +29,17 @@ class ProPublicaService
     new.find_bill(bill_ref)
   end
 
+  def get_full_bill(bill_ref)
+    bill_id = convert_bill_ref(bill_ref).first
+    congress_id = convert_bill_ref(bill_ref).last
+    response = conn.get("/congress/v1/#{congress_id}/bills/#{bill_id}.json")
+    JSON.parse(response.body, symbolize_names: true)[:results].first
+  end
+
+  def self.get_full_bill(bill_ref)
+    new.get_full_bill(bill_ref)
+  end
+
   private
 
     attr_reader :conn

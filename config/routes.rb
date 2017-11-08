@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   namespace :users do
     resources :issues, only: [:index, :show]
-    resources :bills, only: [:index]
+    resources :bills, only: [:index, :show]
   end
   
   resources :users, only: [:new, :create, :show]

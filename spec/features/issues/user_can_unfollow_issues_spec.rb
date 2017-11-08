@@ -12,9 +12,9 @@ feature 'User can unfollow issues' do
     expect(page).to_not have_content(issue2.name)
     expect(page).to_not have_content(issue3.name)
 
-    expect(page).to have_content 'Follow/Unfollow Issues'
+    expect(page).to have_content 'Follow Issues'
 
-    click_on 'Follow/Unfollow Issues'
+    click_on 'Follow Issues'
 
     expect(current_path).to eq issues_path
 

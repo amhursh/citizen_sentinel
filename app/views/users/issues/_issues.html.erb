@@ -2,6 +2,13 @@
   <div class="level">
     <h1 class="level-item has-text-centered is-size-2">Issues You Follow</h1>
   </div>
+  <% if @issues.empty? %>
+  <div class="level">
+      <h3 class="level-item has-text-centered">
+        You do not currently follow any Issues.
+      </h3>
+  </div>
+  <% else %>
   <table class="table is-fullwidth is-striped">
     <thead>
       <tr>
@@ -18,5 +25,9 @@
       </tr>
     </tbody>
     <% end %>
-  </table> 
+  </table>
+  <% end %>
+  <div class="level">
+    <h1 class="level-item has-text-centered is-size-3"><%= link_to "Follow Issues", issues_path, class: "button is-link" %></h1>
+  </div>
 </div>

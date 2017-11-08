@@ -14,7 +14,6 @@ class IssueBill
   def initialize(info)
     @bill_ref           = info[:bill_id]
     @bill_id            = info[:number]
-    # @bill_number        = format_bill_number(info[:number])
     @bill_number        = info[:bill_slug]
     @bill_uri           = info[:bill_uri]
     @title              = info[:title]
@@ -23,10 +22,6 @@ class IssueBill
     @committees         = info[:committees]
     @last_action_date   = info[:latest_major_action_date]
     @last_major_action  = info[:latest_major_action]
-  end
-
-  def format_bill_number(raw_bill_num)
-    raw_bill_num.tr('.','').downcase
   end
 
 end
