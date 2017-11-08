@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   delete '/unfollow_issue', to: 'issue_follows#destroy', as: 'issue_unfollows'
 
   post '/follow_bill', to: 'bill_follows#create', as: 'bill_follows'
+  delete '/unfollow_bill', to: 'bill_follows#destroy', as: 'bill_unfollows'
 
   get '/login', to: 'sessions#new', as: 'new_login'
   post '/login', to: 'sessions#create', as: 'login'
