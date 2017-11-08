@@ -28,7 +28,7 @@ feature 'User can view a bill' do
 
     click_on "View Bill"
 
-    expect(page).to have_css('.number')
+    expect(page).to have_css('.bill-number')
     expect(page).to have_css('.short-title')
     expect(page).to have_css('.sponsor')
     expect(page).to have_css('.congressdotgov')
