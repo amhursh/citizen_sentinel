@@ -12,7 +12,7 @@ class Users::BillsController < ApplicationController
 
   def show
     bill_ref = params[:bill_ref]
-    @bill = BillsSearch.find_full(bill_ref)
+    @bill = BillsSearch.get_full(bill_ref)
   end
 
 end
