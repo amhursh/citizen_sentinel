@@ -14,7 +14,6 @@ class IssueBill
   def initialize(info)
     @bill_ref           = info[:bill_id]
     @bill_id            = info[:number]
-    # @bill_number        = format_bill_number(info[:number])
     @bill_number        = info[:bill_slug]
     @bill_uri           = info[:bill_uri]
     @title              = info[:title]

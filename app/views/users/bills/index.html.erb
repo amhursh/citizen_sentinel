@@ -13,13 +13,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr id="bill-<%= bill.id %>">
         <td><%= bill.bill_id %></td>
         <td><%= bill.title %></td>
         <td><%= bill.subject %></td>
         <td><%= bill.active.to_s %></td>
         <td><%= bill.enacted.to_s %></td>
-        <td> BILL LINK HERE </td>
+        <td><%= link_to "View Bill", users_bill_path(bill_id: bill.id) %></td>
         <td><%= link_to "Unfollow", bill_unfollows_path(bill_id: bill.id), method: :delete %></td>
       </tr>
     </tbody>
