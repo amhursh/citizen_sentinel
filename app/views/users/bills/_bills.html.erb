@@ -2,6 +2,13 @@
   <div class="level">
     <h1 class="level-item has-text-centered is-size-2">Bills You Follow</h1>
   </div>
+  <% if @bills.empty? %>
+  <div class="level">
+      <h3 class="level-item has-text-centered">
+        You do not currently follow any bills. Add and view an issue to select bills to follow.
+      </h3>
+  </div>
+  <% else %>
   <table class="table is-fullwidth is-striped">
     <thead>
       <tr>
@@ -21,10 +28,14 @@
         <td><%= bill.subject %></td>
         <td><%= bill.active.to_s %></td>
         <td><%= bill.enacted.to_s %></td>
-        <td><%= link_to "View Bill", users_bill_path(bill, bill_ref: bill.bill_ref) %></td>
-        <td><%= link_to "Unfollow", bill_unfollows_path(bill_id: bill.id), method: :delete, remote: true, name: 'bill-unfollow-button' %></td>
+        <td><%= link_to "View Bill", users_bill_path(bill, bill_ref: bill.bill_ref), class: 'button is-link is-outlined is-small' %></td>
+        <td><%= link_to "Unfollow", bill_unfollows_path(bill_id: bill.id), method: :delete, remote: true, name: 'bill-unfollow-button', class: 'button is-danger is-outlined is-small' %></td>
       </tr>
     </tbody>
     <% end %>
   </table> 
+  <% end %>
+  <div class="level">
+    <h1 class="level-item has-text-centered is-size-3"><%= link_to "Follow Issues", issues_path, class: "button is-link" %></h1>
+  </div>
 </div>
