@@ -49,6 +49,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'factory_bot'
   gem 'simplecov'
+  gem 'shoulda'
 end
 
 group :development do
