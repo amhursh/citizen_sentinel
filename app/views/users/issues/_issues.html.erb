@@ -6,14 +6,15 @@
     <thead>
       <tr>
         <th>Issue</th>
-        <th colspan="1"></th>
+        <th colspan="2"></th>
       </tr>
     </thead>
     <% @issues.each do |issue| %>
     <tbody>
-      <tr class="issues-row-<%= issue.id %>">
+      <tr id="issues-row-<%= issue.id %>">
         <td><%= issue.name %></td>
         <td><%= link_to "Check Activity", users_issue_path(issue), class: 'button is-link is-outlined is-small' %></td>
+        <td><%= link_to 'Unfollow', issue_unfollows_path(issue_id: issue.id), class: 'button is-danger is-outlined is-small', remote: true, method: :delete %></td>
       </tr>
     </tbody>
     <% end %>

@@ -44,8 +44,6 @@ feature 'User can unfollow issues' do
       click_on 'Unfollow'
     end
 
-    expect(page).to have_content "Unfollowed Issue: #{issue1.name}"
-
     visit user_path(user)
 
     click_on 'Followed Issues'

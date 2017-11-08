@@ -15,10 +15,14 @@ class IssueFollowsController < ApplicationController
 
   def destroy
     user = current_user
-    issue = Issue.find(params[:issue_id])
-    user.issues.destroy(issue)
-    flash[:success] = "Unfollowed Issue: #{issue.name}"
-    redirect_back(fallback_location: user_path(user))
+    @issue = Issue.find(params[:issue_id])
+    user.issues.destroy(@issue)
+    # flash[:success] = "Unfollowed Issue: #{@issue.name}"
+
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: user_path(user)) }
+      format.js
+    end
   end
 
 end
